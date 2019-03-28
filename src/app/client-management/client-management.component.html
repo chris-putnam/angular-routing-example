@@ -1,0 +1,6 @@
+<h1>Client Management</h1>
+<ul *ngIf="clients.length">
+  <li *ngFor="let client of clients">
+    <a [routerLink]="['/clients', client.id]">{{ client.name }}</a>
+  </li>
+</ul>
