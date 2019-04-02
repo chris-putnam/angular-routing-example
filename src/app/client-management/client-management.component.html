@@ -1,6 +1,46 @@
-<h1>Client Management</h1>
-<ul *ngIf="clients.length">
-  <li *ngFor="let client of clients">
-    <a [routerLink]="['/clients', client.id]">{{ client.name }}</a>
-  </li>
-</ul>
+<form class="form-inline">
+
+
+  <h1>Client Management</h1>
+  <ul *ngIf="clients.length">
+    <li *ngFor="let client of clients">
+      <a [routerLink]="['/clients', client.id]">{{ client.name }}</a>
+    </li>
+  </ul>
+
+
+  <div class="row ffg-form-row col-md-12">
+    <div class="form-group col-md-4">
+      <label for="state" class="ffg-inline-field-40 control-label">State:</label>
+      <!-- <input id="state" class="form-control ffg-inline-field-50" formControlName="state" [readonly]="!canEdit" /> -->
+      <select id="state" class="form control ffg-inline-field-50" formControlName="state">
+        <!-- <option *ngFor="let state of states" [value]="state.value">{{state.value}}</option> -->
+        <option>AZ</option>
+        <option>CA</option>
+        <option>ME</option>
+        <option>TX</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="zip" class="ffg-inline-field-40 control-label">Zip:</label>
+      <input id="zip" class="form-control ffg-inline-field-50" formControlName="zip" [readonly]="!canEdit" />
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="trust" class="ffg-inline-field-40 control-label">Trust Counsel:</label>
+      <input id="trust" class="form-control ffg-inline-field-50" formControlName="trustCounsel" [readonly]="!canEdit" />
+    </div>
+  </div>
+  <div class="ffg-form-row"></div>
+
+  <div class="row ffg-form-row col-md-12" *ngIf="!isEditing">
+    <div class="col-md-12">
+      <div class="float-right col-md-4">
+        <button type="button" class="button button-default btn-spacer-5 float-right">Edit</button>
+        <button type="button" class="button button-default btn-spacer-5 float-right">Close</button>
+        <button type="button" class="button button-default btn-spacer-5 float-right">Clone</button>
+      </div>
+    </div>
+  </div>
+</form>
