@@ -16,6 +16,9 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.clientDataService.get().subscribe((clients: Client[]) => {
+      // this is one approach to dynamic menus in angular
+      // just populate an array of links depending on user role or something
+      // all sensitive data on your screens should come from APIs and be restricted by user as well
       this.links = clients.map((client: Client) => {
         return {
           linkParts: ['/clients', client.id],
