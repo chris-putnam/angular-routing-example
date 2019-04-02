@@ -6,6 +6,6 @@ $enable-rounded: false;
 
 .form-group {
     label {
-        font-weight: bold;
+        font-weight: $font-weight-bold;
     }
 }

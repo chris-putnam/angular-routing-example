@@ -1,27 +1,27 @@
-@import "theme";
-@import "bootstrap";
+@import 'variables';
 
-$sticky-footer-height: 4em;
-$footer-bg-color: #F5F5F5;
+$sticky-footer-height: $spacer * 4;
+$footer-bg-color: #f5f5f5;
 
 html {
-    position: relative;
-    min-height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
 body {
-    margin-bottom: $sticky-footer-height;
+  margin-bottom: $sticky-footer-height;
 
-    main.container {
-        padding-top: 6em;
-    }
+  main.container {
+    padding-top: 6em;
+    padding-bottom: $sticky-footer-height;
+  }
 }
 
 .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: $sticky-footer-height;
-    line-height: $sticky-footer-height;
-    background-color: $footer-bg-color;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: $sticky-footer-height;
+  line-height: $sticky-footer-height;
+  background-color: $footer-bg-color;
 }
