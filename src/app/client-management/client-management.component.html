@@ -1,19 +1,49 @@
-<form class="form-inline">
-
-
-  <h1>Client Management</h1>
-  <ul *ngIf="clients.length">
-    <li *ngFor="let client of clients">
-      <a [routerLink]="['/clients', client.id]">{{ client.name }}</a>
-    </li>
-  </ul>
-
-
-  <div class="row ffg-form-row col-md-12">
-    <div class="form-group col-md-4">
-      <label for="state" class="ffg-inline-field-40 control-label">State:</label>
+<div class="row">
+  <div class="col">
+    <h1>Client Management</h1>
+    <ul *ngIf="clients.length">
+      <li *ngFor="let client of clients">
+        <a [routerLink]="['/clients', client.id]">{{ client.name }}</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<form>
+  <div class="row mt-4">
+    <div class="form-group row col-md-4 no-gutters">
+      <label for="state" class="col-form-label col-sm-5 text-sm-right pr-2">State:</label>
       <!-- <input id="state" class="form-control ffg-inline-field-50" formControlName="state" [readonly]="!canEdit" /> -->
-      <select id="state" class="form control ffg-inline-field-50" formControlName="state">
+      <div class="col-sm-7">
+        <select id="state" class="form-control" formControlName="state">
+          <!-- <option *ngFor="let state of states" [value]="state.value">{{state.value}}</option> -->
+          <option>AZ</option>
+          <option>CA</option>
+          <option>ME</option>
+          <option>TX</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row col-md-4 no-gutters">
+      <label for="zip" class="col-form-label col-sm-5 text-sm-right pr-2">Zip:</label>
+      <div class="col-sm-7">
+        <input id="zip" class="form-control" formControlName="zip" [readonly]="!canEdit" />
+      </div>
+    </div>
+
+    <div class="form-group row col-md-4 no-gutters">
+      <label for="trust" class="col-form-label col-sm-5 text-sm-right pr-2">Trust Counsel:</label>
+      <div class="col-sm-7">
+        <input id="trust" class="form-control" formControlName="trustCounsel" [readonly]="!canEdit" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group row col-md-4 no-gutters">
+      <label for="state" class="col-form-label">State:</label>
+      <!-- <input id="state" class="form-control ffg-inline-field-50" formControlName="state" [readonly]="!canEdit" /> -->
+      <select id="state" class="form-control" formControlName="state">
         <!-- <option *ngFor="let state of states" [value]="state.value">{{state.value}}</option> -->
         <option>AZ</option>
         <option>CA</option>
@@ -22,25 +52,22 @@
       </select>
     </div>
 
-    <div class="form-group col-md-4">
-      <label for="zip" class="ffg-inline-field-40 control-label">Zip:</label>
-      <input id="zip" class="form-control ffg-inline-field-50" formControlName="zip" [readonly]="!canEdit" />
+    <div class="form-group row col-md-4 no-gutters">
+      <label for="zip" class="col-form-label">Zip:</label>
+      <input id="zip" class="form-control" formControlName="zip" [readonly]="!canEdit" />
     </div>
 
-    <div class="form-group col-md-4">
-      <label for="trust" class="ffg-inline-field-40 control-label">Trust Counsel:</label>
-      <input id="trust" class="form-control ffg-inline-field-50" formControlName="trustCounsel" [readonly]="!canEdit" />
+    <div class="form-group row col-md-4 no-gutters">
+      <label for="trust" class="col-form-label">Trust Counsel:</label>
+      <input id="trust" class="form-control" formControlName="trustCounsel" [readonly]="!canEdit" />
     </div>
   </div>
-  <div class="ffg-form-row"></div>
 
-  <div class="row ffg-form-row col-md-12" *ngIf="!isEditing">
-    <div class="col-md-12">
-      <div class="float-right col-md-4">
-        <button type="button" class="button button-default btn-spacer-5 float-right">Edit</button>
-        <button type="button" class="button button-default btn-spacer-5 float-right">Close</button>
-        <button type="button" class="button button-default btn-spacer-5 float-right">Clone</button>
-      </div>
+  <div class="row" *ngIf="!isEditing">
+    <div class="col no-gutters text-right">
+      <button type="button" class="button button-default btn-spacer-5 float-right">Edit</button>
+      <button type="button" class="button button-default btn-spacer-5 float-right">Close</button>
+      <button type="button" class="button button-default btn-spacer-5 float-right">Clone</button>
     </div>
   </div>
 </form>
