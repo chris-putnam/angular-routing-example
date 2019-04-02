@@ -31,11 +31,9 @@
           Button dropdown <span class="caret"></span>
         </button>
         <ul *dropdownMenu class="dropdown-menu" role="menu">
-          <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-          <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
-          <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
-          <li class="divider dropdown-divider"></li>
-          <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
+          <li *ngFor="let link of links" role="menuitem">
+            <a class="dropdown-item" [routerLink]="link.linkParts" (click)="isCollapsed = true">{{ link.text }}</a>
+          </li>
         </ul>
       </li>
     </ul>
