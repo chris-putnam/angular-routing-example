@@ -1,0 +1,27 @@
+@import "theme";
+@import "bootstrap";
+
+$sticky-footer-height: 4em;
+$footer-bg-color: #F5F5F5;
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: $sticky-footer-height;
+
+    main.container {
+        padding-top: 6em;
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: $sticky-footer-height;
+    line-height: $sticky-footer-height;
+    background-color: $footer-bg-color;
+}
